@@ -1,0 +1,343 @@
+[root@bash ~]# history
+    1  ls /var/log/
+    2  cd /etc/cron.hourly/
+    3  ls
+    4  cd ..
+    5  vagrant/
+    6  cd vagrant/
+    7  ls
+    8  crontab -e
+    9  cd ..
+   10  exit
+   11  yum install -y mdadm smartmontools hdparm gdisk
+   12  yum install -y redhat-lsb-core
+   13  exit
+   14  yum install -y wget
+   15  yum install -y rpmdevtools
+   16  yum install -y rpm-build
+   17  yum install -y createrepo
+   18  yum install -y yum-utils
+   19  yum install -y pcre-devel
+   20  [root@bash ~]#
+   21  yum install -y gcc
+   22  wget https://nginx.org/packages/centos/8/SRPMS/nginx-1.18.0-2.el8.ngx.src.rpm
+   23  rpm -i nginx-1.18.0-2.el8.ngx.src.rpm
+   24  wget https://www.openssl.org/source/latest.tar.gz
+   25  tar -xvf latest.tar.gz
+   26  cd /root/
+   27  yum-builddep -y rpmbuild/SPECS/nginx.spec
+   28  nano /root/rpmbuild/SPECS/nginx.spec
+   29  rpmbuild -bb /root/rpmbuild/SPECS/nginx.spec
+   30  ll /root/rpmbuild/RPMS/x86_64/
+   31  nano /root/rpmbuild/SPECS/nginx.spec
+   32  rpmbuild -bb /root/rpmbuild/SPECS/nginx.spec
+   33  ll /root/rpmbuild/RPMS/x86_64/
+   34  yum localinstall -y /root/rpmbuild/RPMS/x86_64/nginx-1.18.0-2.el8.ngx.x86_64.rpm
+   35  systemctl start nginx
+   36  systemctl status nginx.service
+   37  sudo systemctl status nginx.service
+   38  mkdir /usr/share/nginx/html/repo
+   39  cp /root/rpmbuild/RPMS/x86_64/nginx-1.18.0-2.el8.ngx.x86_64.rpm /usr/share/nginx/html/repo/
+   40  wget https://downloads.percona.com/downloads/percona-release/percona-release-1.0-9/redhat/percona-release-1.0-9.noarch.rpm -O /usr/share/nginx/html/repo/percona-release-1.0-9.noarch.rpm
+   41  createrepo /usr/share/nginx/html/repo/
+   42  nano /etc/nginx/conf.d/default.conf
+   43   nginx -t
+   44  nginx -s reload
+   45  curl -a http://127.0.0.1/repo/
+   46  reboot
+   47  exit
+   48  reboot
+   49  reboot -i
+   50  sudo reboot
+   51  systemctl reload
+   52  systemctl reload-or-restart
+   53  cd ..
+   54  reboot
+   55  exit
+   56  createrepo /usr/share/nginx/html/repo/
+   57  cd /usr/share/nginx/html/repo/
+   58  mkdir new.txt
+   59  ls
+   60  [root@bash repo]#
+   61  curl -a http://127.0.0.1/repo/
+   62  nano /etc/nginx/conf.d/default.conf
+   63  nginx -t
+   64  nginx -s reload
+   65  curl -a http://127.0.0.1/repo/
+   66  cd /var/log/nginx/
+   67  ls
+   68  mc
+   69  nano 0pochta.cron
+   70  nano /var/log/nginx/pochta.sh
+   71  nano /var/log/nginx/skripts.sh
+   72  nano /var/log/nginx/access.log
+   73  nano 0pochta.cron
+   74  nano /var/log/nginx/access.log
+   75  cd ..
+   76  ls
+   77  crontab -e
+   78  export EDITOR=nano
+   79  crontab -e
+   80  nano /var/log/nginx/0pochta.cron
+   81  nano /var/log/nginx/access.log
+   82  crontab -e
+   83  nano /var/log/nginx/access.log
+   84  chmod +x /var/log/nginx/pochta.sh
+   85  chmod +x /var/log/nginx/skripts.sh
+   86  chmod +x /var/log/nginx/0pochta.cron
+   87  ls -ls /var/log/nginx/
+   88  history
+   89   crontab -e
+   90  nano /var/log/nginx/access.log
+   91  cd /var/log/nginx/
+   92  ./0pochta.cron
+   93  nano /var/log/nginx/access.log
+   94  ./pochta.sh
+   95  ./skripts.sh
+   96  nano skripts.sh
+   97  ./skripts.sh
+   98  nano skripts.sh
+   99  ls
+  100  nano skripts.sh
+  101  ./skripts.sh
+  102  mkdir access.log
+  103  ./skripts.sh
+  104  nano access.log
+  105  ls
+  106  chmod +x /var/log/nginx/access.logcd
+  107  cd access.log/
+  108  ls
+  109  cd ..
+  110  rm access.log/
+  111  ls
+  112  rm access.log
+  113  rm access.log/
+  114  mc
+  115  nano access.log
+  116  ls
+  117  > access.log
+  118  ls
+  119  ./skripts.sh
+  120  date
+  121  nano access.log
+  122  ./skripts.sh
+  123  yum install net-tools.x86_64
+  124  netstat -ntpe
+  125  ifconfig
+  126  nano access.log
+  127  systemctl restart nginx.service
+  128  nano access.log
+  129  ls
+  130  chmod 0777 access.log
+  131  systemctl restart nginx.service
+  132  systemctl status nginx.service
+  133  nano access.log
+  134  ./skripts.sh
+  135  mail
+  136  ./pochta.sh
+  137  ls
+  138  mailx root@localhost
+  139  mail
+  140  mailx root@localhost
+  141  mkfifo /var/spool/postfix/public/pickup
+  142  mailx root@localhost
+  143  mail
+  144  cd /var/spool/postfix/public/pickup
+  145  cd /var/spool/postfix/public/
+  146  ls
+  147  nano pickup
+  148  mailx root@127.0.0.1
+  149  mail
+  150  history
+  151  curl -a http://127.0.0.1/repo/
+  152  ping mail.ru
+  153  ls /var/log/maillog
+  154  cat /var/log/maillog
+  155  echo 'Attachment' | mail -s 'Subject attachment message' -a /var/log/maillog e-mail-letters@mail.ru
+  156  cd /
+  157  history
+  158  cd /var/log/nginx/
+  159  ls
+  160  > access.log
+  161  nano access.log
+  162  chmod 0777 access.log
+  163  nano access.log
+  164  ls
+  165  systemctl restart nginx.service
+  166  nano access.log
+  167  nano pochta.sh
+  168  ./pochta.sh
+  169  nano pochta.sh
+  170  ./pochta.sh
+  171  nano access.log
+  172  nano pochta.sh
+  173  mailx root@localhost < otchet.txt
+  174  mail
+  175  mailq
+  176  mailq C5B6310261D4
+  177  cat >> /etc/yum.repos.d/miklyaev.repo << EOF
+  178  [miklyaev]
+  179  name=miklyaev-linux
+  180  baseurl=http://127.0.0.1/repo
+  181  gpgcheck=0
+  182  enabled=1
+  183  EOF
+  184  ls /etc/yum.repos.d/
+  185  yum repolist enabled | grep miklyaev
+  186  yum list | grep miklyaev
+  187  yum install -y percona-release
+  188  createrepo /usr/share/nginx/html/repo/
+  189  curl -a http://127.0.0.1/repo/
+  190  mailx root@localhost
+  191  nano /var/log/maillog
+  192  sudo yum install postfix telnet mailx
+  193  sudo /etc/init.d/postfix start
+  194  systemctl restart postfix.service
+  195  nano /etc/postfix/main.cf
+  196  mailx root@localhost
+  197  mail
+  198  history
+  199  mail
+  200  nano access.log
+  201  mail
+  202  nano 0pochta.cron
+  203  ./0pochta.cron
+  204  mail
+  205  ./pochta.sh
+  206  mail
+  207  nano 0pochta.cron
+  208  mail
+  209  crontab -e
+  210  nano pochta.sh
+  211  mail
+  212  tail
+  213  mail
+  214  nano pochta.sh
+  215  crontab -e
+  216  watch mail
+  217  mail
+  218  watch mail
+  219  nano /var/spool/mail/root
+  220  crontab -e
+  221  mail
+  222  crontab -e
+  223  mail
+  224  cd /var/spool/mail/
+  225  ls
+  226  nano root
+  227  mail
+  228  nano root
+  229  history
+  230  nano root
+  231  cd /var/log/nginx/
+  232  ./pochta.sh
+  233  nano /var/spool/mail/root
+  234  ls
+  235  nano otchet.txt
+  236  nano pochta.sh
+  237  ./pochta.sh
+  238  ls
+  239  ./skripts.sh
+  240  ls
+  241  ./0pochta.cron
+  242  nano /var/spool/mail/root
+  243  history
+  244  chmod 0777 access.log
+  245  nano /var/spool/mail/root
+  246  crontab -e
+  247  nano /var/spool/mail/root
+  248  ./pochta.sh
+  249  nano /var/spool/mail/root
+  250  nano /var/spool/mail/root
+  251  nano pochta.sh
+  252  ./pochta.sh
+  253  nano pochta.sh
+  254  ./pochta.sh
+  255  nano /var/spool/mail/root
+  256  history
+  257  ./pochta.sh
+  258  nano pochta.sh
+  259  ./pochta.sh
+  260  nano /var/spool/mail/root
+  261  nano pochta.sh
+  262  mail -s "Отчет о повышенной нагрузке на сервере $HOSTNAME" root@localhost < /tmp/system_load_analize.log
+  263  nano pochta.sh
+  264  ./pochta.sh
+  265  rm /var/spool/mail/root
+  266  ./pochta.sh
+  267  nano /var/spool/mail/root
+  268  nano 0pochta.cron
+  269  ls
+  270  nano pochta.sh
+  271  ./pochta.sh
+  272  nano /var/spool/mail/root
+  273  ls
+  274  nano otchet.txt
+  275  nano hta.cron
+  276  fv
+  277  ./0pochta.cron
+  278  nano /var/spool/mail/root
+  279  ls
+  280  crontab -e
+  281  rm /var/spool/mail/root
+  282  nano /var/spool/mail/root
+  283  mc
+  284  chmod +x /var/log/nginx/0pochta.sh
+  285  rm /var/spool/mail/root
+  286  ./0pochta.sh
+  287  nano 0pochta.sh
+  288  ./0pochta.sh
+  289  nano /var/spool/mail/root
+  290  ./0pochta.sh
+  291  nano /var/spool/mail/root
+  292  crontab -e
+  293  nano pochta.sh
+  294  nano /var/spool/mail/root
+  295  crontab -e
+  296  rm /var/spool/mail/root
+  297  nano /var/spool/mail/root
+  298  ls
+  299  nano skripts.sh
+  300  rm /var/spool/mail/root
+  301  ./pochta.sh
+  302  nano /var/spool/mail/root
+  303  nano skripts.sh
+  304  mc
+  305  chmod +x /var/log/nginx/skripts.sh
+  306  rm /var/spool/mail/root
+  307  ./pochta.sh
+  308  nano /var/spool/mail/root
+  309  nano skripts.sh
+  310  nano /var/spool/mail/root
+  311  ls
+  312  nano otchet.txt
+  313  ./skripts.sh
+  314  nano access.log
+  315  nano /var/spool/mail/root
+  316  rm /var/spool/mail/root
+  317  ./skripts.sh
+  318  nano /var/spool/mail/root
+  319  crontab -e
+  320  nano /var/spool/mail/root
+  321  nano 0pochta.sh
+  322  nano /var/spool/mail/root
+  323  ./skripts.sh
+  324  ./pochta.sh
+  325  nano /var/spool/mail/root
+  326  mailx root@127.0.0.1
+  327  nano /var/spool/mail/root
+  328  ./pochta.sh
+  329  nano /var/spool/mail/root
+  330  nano access.log
+  331  ./pochta.sh
+  332  nano /var/spool/mail/root
+  333  crontab -e
+  334  mailx root@localhost
+  335  mc
+  336  cd /var/log/nginx/
+  337  rm otchet.txt
+  338  ./pochta.sh
+  339  ls
+  340  mc
+  341  exit
+  342  history
