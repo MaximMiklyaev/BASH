@@ -1,38 +1,38 @@
 *******start*********
 
-#скачиваем Vagrantfile
+#СЃРєР°С‡РёРІР°РµРј Vagrantfile
 
            git clone https://github.com/MaximMiklyaev/BASH.git
 
-#переходим в директорию:
+#РїРµСЂРµС…РѕРґРёРј РІ РґРёСЂРµРєС‚РѕСЂРёСЋ:
 
            cd /BASH
 
-#запускаем образ
+#Р·Р°РїСѓСЃРєР°РµРј РѕР±СЂР°Р·
 
            vagrant up
 
-#начнем с установки веб-сервера
+#РЅР°С‡РЅРµРј СЃ СѓСЃС‚Р°РЅРѕРІРєРё РІРµР±-СЃРµСЂРІРµСЂР°
 
-#ДЗ
+#Р”Р—
 
-#результаты ДЗ в файлах root otchet.txt access.log собираемая информация
+#СЂРµР·СѓР»СЊС‚Р°С‚С‹ Р”Р— РІ С„Р°Р№Р»Р°С… root otchet.txt access.log СЃРѕР±РёСЂР°РµРјР°СЏ РёРЅС„РѕСЂРјР°С†РёСЏ
 
-#для начала развернем веб-сервер nginx (порядок развёртывания в пункте #1)
+#РґР»СЏ РЅР°С‡Р°Р»Р° СЂР°Р·РІРµСЂРЅРµРј РІРµР±-СЃРµСЂРІРµСЂ nginx (РїРѕСЂСЏРґРѕРє СЂР°Р·РІС‘СЂС‚С‹РІР°РЅРёСЏ РІ РїСѓРЅРєС‚Рµ #1)
 
-#для выполднения ДЗ необходимо три скрипта.
+#РґР»СЏ РІС‹РїРѕР»РґРЅРµРЅРёСЏ Р”Р— РЅРµРѕР±С…РѕРґРёРјРѕ С‚СЂРё СЃРєСЂРёРїС‚Р°.
 
-#переносим скрипты 0pochta.cron pochta.sh skripts.sh в 
+#РїРµСЂРµРЅРѕСЃРёРј СЃРєСЂРёРїС‚С‹ 0pochta.sh pochta.sh skripts.sh РІ 
 
             /var/log/nginx/
 
-#даём права
+#РґР°С‘Рј РїСЂР°РІР°
 
             chmod +x /var/log/nginx/pochta.sh
             chmod +x /var/log/nginx/skripts.sh
             chmod +x /var/log/nginx/0pochta.sh
 
-#даем выполнения каждые пять минут 0pochta.sh каждый час pochta.sh
+#РґР°РµРј РІС‹РїРѕР»РЅРµРЅРёСЏ РєР°Р¶РґС‹Рµ РїСЏС‚СЊ РјРёРЅСѓС‚ 0pochta.sh РєР°Р¶РґС‹Р№ С‡Р°СЃ pochta.sh
 
             export EDITOR=nano
 
@@ -41,30 +41,30 @@
             */5 * * * * /var/log/nginx/0pochta.sh
             0 * * * * /var/log/nginx/pochta.sh
 
-#полезные команды
+#РїРѕР»РµР·РЅС‹Рµ РєРѕРјР°РЅРґС‹
 
-            дополнительно 
+            РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅРѕ 
             mkfifo /var/spool/postfix/public/pickup
             sudo yum install postfix telnet mailx
             systemctl restart postfix.service
 
-            проверка почты
-            mailx root@localhost - написать письмо 
-            ctrl+d - отправить
-            mail - просмотр что присылается 
-            nano /var/spool/mail/root - просмотр что присылается 
-            rm /var/spool/mail/root - удаление истории
+            РїСЂРѕРІРµСЂРєР° РїРѕС‡С‚С‹
+            mailx root@localhost - РЅР°РїРёСЃР°С‚СЊ РїРёСЃСЊРјРѕ 
+            ctrl+d - РѕС‚РїСЂР°РІРёС‚СЊ
+            mail - РїСЂРѕСЃРјРѕС‚СЂ С‡С‚Рѕ РїСЂРёСЃС‹Р»Р°РµС‚СЃСЏ 
+            nano /var/spool/mail/root - РїСЂРѕСЃРјРѕС‚СЂ С‡С‚Рѕ РїСЂРёСЃС‹Р»Р°РµС‚СЃСЏ 
+            rm /var/spool/mail/root - СѓРґР°Р»РµРЅРёРµ РёСЃС‚РѕСЂРёРё
 
-            если удалили /var/log/nginx/access.log
+            РµСЃР»Рё СѓРґР°Р»РёР»Рё /var/log/nginx/access.log
             > access.log
             chmod 0777 access.log
 
 
-#скрипт-1
+#СЃРєСЂРёРїС‚-1
 
-            0pochta.sh -защита от мультизапуска
+            0pochta.sh -Р·Р°С‰РёС‚Р° РѕС‚ РјСѓР»СЊС‚РёР·Р°РїСѓСЃРєР°
 
-#вывод скрипта
+#РІС‹РІРѕРґ СЃРєСЂРёРїС‚Р°
 
             #!/bin/bash
             
@@ -81,12 +81,12 @@
               trap - INT TERM EXIT
             fi
 
-#скрипт-2
+#СЃРєСЂРёРїС‚-2
 
-            pochta.sh скрипт производит  поиск и запуск скрипта skripts.sh и отправляет его вывод на почту root-пользователя
-            его размешаем /var/log/nginx/
+            pochta.sh СЃРєСЂРёРїС‚ РїСЂРѕРёР·РІРѕРґРёС‚  РїРѕРёСЃРє Рё Р·Р°РїСѓСЃРє СЃРєСЂРёРїС‚Р° skripts.sh Рё РѕС‚РїСЂР°РІР»СЏРµС‚ РµРіРѕ РІС‹РІРѕРґ РЅР° РїРѕС‡С‚Сѓ root-РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
+            РµРіРѕ СЂР°Р·РјРµС€Р°РµРј /var/log/nginx/
 
-#вывод скрипта
+#РІС‹РІРѕРґ СЃРєСЂРёРїС‚Р°
 
             #!/bin/bash
             if
@@ -100,40 +100,40 @@
             echo "file not found"
             fi
 
-#скрипт-3
+#СЃРєСЂРёРїС‚-3
 
-            skripts.sh исполнительный скрипт
-            его размешаем /var/log/nginx/
+            skripts.sh РёСЃРїРѕР»РЅРёС‚РµР»СЊРЅС‹Р№ СЃРєСЂРёРїС‚
+            РµРіРѕ СЂР°Р·РјРµС€Р°РµРј /var/log/nginx/
 
-#вывод скрипта
+#РІС‹РІРѕРґ СЃРєСЂРёРїС‚Р°
 
             #!/bin/bash
-            echo "Временной диапазон":
+            echo "Р’СЂРµРјРµРЅРЅРѕР№ РґРёР°РїР°Р·РѕРЅ":
             cat /var/log/nginx/access.log | awk '{print $4}' | head -n 1 &&  date | awk '{print $2,$3,$4,$6}' &&
             
             #1
-            echo "Топ-10 клиентских URL запрашиваемых с этого сервера"
+            echo "РўРѕРї-10 РєР»РёРµРЅС‚СЃРєРёС… URL Р·Р°РїСЂР°С€РёРІР°РµРјС‹С… СЃ СЌС‚РѕРіРѕ СЃРµСЂРІРµСЂР°"
             cat /var/log/nginx/access.log | awk '{print $7}' | sort | uniq -c | sort -rn | head -n 10 > 1.1.txt && cat 1.1.txt &&
             echo "------------------------------------------------------" 
             #2
-            echo "Топ-10 клиентских IP"
+            echo "РўРѕРї-10 РєР»РёРµРЅС‚СЃРєРёС… IP"
             cat /var/log/nginx/access.log | awk '{print $1}' | sort | uniq -c | sort -rn | head -n 10 > 2.2.txt && tail -n 10 2.2.txt &&
             echo "------------------------------------------------------"
             #3
-            echo "Все коды состояния HTTP и их количество"
+            echo "Р’СЃРµ РєРѕРґС‹ СЃРѕСЃС‚РѕСЏРЅРёСЏ HTTP Рё РёС… РєРѕР»РёС‡РµСЃС‚РІРѕ"
             cat /var/log/nginx/access.log | awk '{print $9}'| grep -v "-" | sort | uniq -c | sort -rn > 3.3.txt && cat 3.3.txt && 
             echo "------------------------------------------------------" 
             #4
-            echo "Все коды состояния  4xx и 5xx"
+            echo "Р’СЃРµ РєРѕРґС‹ СЃРѕСЃС‚РѕСЏРЅРёСЏ  4xx Рё 5xx"
             cat /var/log/nginx/access.log | awk '{print $9}' | grep ^4 > 4.4.txt && cat /var/log/nginx/access.log | awk '{print $9}'  | grep ^5 >> 4.4.txt && cat 4.4.txt | uniq -d -c | sort -rn > 4.5.txt && cat 4.5.txt &&
             echo "------------------------------------------------------"
             echo "all"
             rm -f 1.1.txt 2.2.txt 3.3.txt 4.4.txt 4.5.txt
 
 
-*****разварачиваем веб сервер********
+*****СЂР°Р·РІР°СЂР°С‡РёРІР°РµРј РІРµР± СЃРµСЂРІРµСЂ********
 
-#1 вводим команды установки
+#1 РІРІРѕРґРёРј РєРѕРјР°РЅРґС‹ СѓСЃС‚Р°РЅРѕРІРєРё
             
             sudo -i
             yum install -y mdadm smartmontools hdparm gdisk
@@ -152,25 +152,25 @@
             yum-builddep -y rpmbuild/SPECS/nginx.spec 
 
 
-#Vagrantfile поднимает VM
+#Vagrantfile РїРѕРґРЅРёРјР°РµС‚ VM
 
-#подключаемся к созданной VM
+#РїРѕРґРєР»СЋС‡Р°РµРјСЃСЏ Рє СЃРѕР·РґР°РЅРЅРѕР№ VM
 
            vagrant ssh
 
-#далее заходим под SU
+#РґР°Р»РµРµ Р·Р°С…РѕРґРёРј РїРѕРґ SU
 
      sudo -i
 
-#начинаем настройку spec файл чтоб NGINX собирался с необходимыми нам опциями 
+#РЅР°С‡РёРЅР°РµРј РЅР°СЃС‚СЂРѕР№РєСѓ spec С„Р°Р№Р» С‡С‚РѕР± NGINX СЃРѕР±РёСЂР°Р»СЃСЏ СЃ РЅРµРѕР±С…РѕРґРёРјС‹РјРё РЅР°Рј РѕРїС†РёСЏРјРё 
           	
           nano /root/rpmbuild/SPECS/nginx.spec
 
-#нажимаем
+#РЅР°Р¶РёРјР°РµРј
 
-          ctrl+w  для поиска вводим %build
+          ctrl+w  РґР»СЏ РїРѕРёСЃРєР° РІРІРѕРґРёРј %build
 
-#вывод 
+#РІС‹РІРѕРґ 
 
          %build
          ./configure %{BASE_CONFIGURE_ARGS} \
@@ -185,7 +185,7 @@
              --with-ld-opt="%{WITH_LD_OPT}"
          make %{?_smp_mflags}
 
-#приводим к такому виду
+#РїСЂРёРІРѕРґРёРј Рє С‚Р°РєРѕРјСѓ РІРёРґСѓ
 
           %build
           ./configure %{BASE_CONFIGURE_ARGS} \
@@ -200,54 +200,54 @@
              --with-ld-opt="%{WITH_LD_OPT}"
           make %{?_smp_mflags}
 
-#вводим
+#РІРІРѕРґРёРј
 
-          ctrl+x подтверждаем/сохраняем  y
+          ctrl+x РїРѕРґС‚РІРµСЂР¶РґР°РµРј/СЃРѕС…СЂР°РЅСЏРµРј  y
 
-#сборка RPM пакета (долгая прогрузка)
+#СЃР±РѕСЂРєР° RPM РїР°РєРµС‚Р° (РґРѕР»РіР°СЏ РїСЂРѕРіСЂСѓР·РєР°)
 
           rpmbuild -bb /root/rpmbuild/SPECS/nginx.spec
 
-#проверка собраных пакетов
+#РїСЂРѕРІРµСЂРєР° СЃРѕР±СЂР°РЅС‹С… РїР°РєРµС‚РѕРІ
 
           ll /root/rpmbuild/RPMS/x86_64/
 
-#вывод
+#РІС‹РІРѕРґ
 
           total 4364
           -rw-r--r--. 1 root root 2037864 Dec  8 09:44 nginx-1.18.0-2.el8.ngx.x86_64.rpm
           -rw-r--r--. 1 root root 2428924 Dec  8 09:44 nginx-debuginfo-1.18.0-2.el8.ngx.x86_64.rpm
 
 
-#установим nginx
+#СѓСЃС‚Р°РЅРѕРІРёРј nginx
 
           yum localinstall -y /root/rpmbuild/RPMS/x86_64/nginx-1.18.0-2.el8.ngx.x86_64.rpm
 
-#запустим nginx
+#Р·Р°РїСѓСЃС‚РёРј nginx
 
           systemctl start nginx
 
-#проверим статус nginx
+#РїСЂРѕРІРµСЂРёРј СЃС‚Р°С‚СѓСЃ nginx
 
           systemctl status nginx
 
-#создаём свою директорию 
+#СЃРѕР·РґР°С‘Рј СЃРІРѕСЋ РґРёСЂРµРєС‚РѕСЂРёСЋ 
 
           mkdir /usr/share/nginx/html/repo
 
-#в созданую директорию копируем nginx
+#РІ СЃРѕР·РґР°РЅСѓСЋ РґРёСЂРµРєС‚РѕСЂРёСЋ РєРѕРїРёСЂСѓРµРј nginx
 
           cp /root/rpmbuild/RPMS/x86_64/nginx-1.18.0-2.el8.ngx.x86_64.rpm /usr/share/nginx/html/repo/
 
-#установка percona-release-1.0-9.noarch.rpm
+#СѓСЃС‚Р°РЅРѕРІРєР° percona-release-1.0-9.noarch.rpm
 
           wget https://downloads.percona.com/downloads/percona-release/percona-release-1.0-9/redhat/percona-release-1.0-9.noarch.rpm -O /usr/share/nginx/html/repo/percona-release-1.0-9.noarch.rpm
 
-#инициализируем репозиторий
+#РёРЅРёС†РёР°Р»РёР·РёСЂСѓРµРј СЂРµРїРѕР·РёС‚РѕСЂРёР№
 
           createrepo /usr/share/nginx/html/repo/
 
-#вывод
+#РІС‹РІРѕРґ
 
           Directory walk started
           Directory walk done - 2 packages
@@ -258,11 +258,11 @@
 
 
 
-#конфигурируем файл 
+#РєРѕРЅС„РёРіСѓСЂРёСЂСѓРµРј С„Р°Р№Р» 
 
          nano /etc/nginx/conf.d/default.conf 
 
-#секцию location прописываем - autoindex on
+#СЃРµРєС†РёСЋ location РїСЂРѕРїРёСЃС‹РІР°РµРј - autoindex on
 
           location / {
               root   /usr/share/nginx/html;
@@ -270,23 +270,23 @@
               autoindex on;
                       }
 
-#проверяем синтаксис и перезапускаем nginx
+#РїСЂРѕРІРµСЂСЏРµРј СЃРёРЅС‚Р°РєСЃРёСЃ Рё РїРµСЂРµР·Р°РїСѓСЃРєР°РµРј nginx
 
           nginx -t
-#вывод
+#РІС‹РІРѕРґ
 
           nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
           nginx: configuration file /etc/nginx/nginx.conf test is successful
 
-#перезапуск
+#РїРµСЂРµР·Р°РїСѓСЃРє
 
           nginx -s reload
 
-#curl репозиторий
+#curl СЂРµРїРѕР·РёС‚РѕСЂРёР№
 
           curl -a http://127.0.0.1/repo/
 
-#вывод curl
+#РІС‹РІРѕРґ curl
 
           <html>
           <head><title>Index of /repo/</title></head>
@@ -299,7 +299,7 @@
           </html>
 
 
-#добавим в curl
+#РґРѕР±Р°РІРёРј РІ curl
 
           cat >> /etc/yum.repos.d/miklyaev.repo << EOF
           [miklyaev]
@@ -309,27 +309,27 @@
           enabled=1
           EOF
 
-#проверка созданого .repo
+#РїСЂРѕРІРµСЂРєР° СЃРѕР·РґР°РЅРѕРіРѕ .repo
 
           ls /etc/yum.repos.d/
 
-#убедимся что репозиторий подключен
+#СѓР±РµРґРёРјСЃСЏ С‡С‚Рѕ СЂРµРїРѕР·РёС‚РѕСЂРёР№ РїРѕРґРєР»СЋС‡РµРЅ
 
           yum repolist enabled | grep miklyaev
 
-#вывод информации о пакете 
+#РІС‹РІРѕРґ РёРЅС„РѕСЂРјР°С†РёРё Рѕ РїР°РєРµС‚Рµ 
 
           miklyaev                  miklyaev-linux 
 
-#посмотрим что в нем есть
+#РїРѕСЃРјРѕС‚СЂРёРј С‡С‚Рѕ РІ РЅРµРј РµСЃС‚СЊ
 
           yum list | grep miklyaev
 
-#установим модуль
+#СѓСЃС‚Р°РЅРѕРІРёРј РјРѕРґСѓР»СЊ
 
           yum install -y percona-release	
 
-#после изменений необходимо применять их
+#РїРѕСЃР»Рµ РёР·РјРµРЅРµРЅРёР№ РЅРµРѕР±С…РѕРґРёРјРѕ РїСЂРёРјРµРЅСЏС‚СЊ РёС…
 
        createrepo /usr/share/nginx/html/repo/
 
